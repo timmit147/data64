@@ -9,10 +9,17 @@ function getBase64FromImageUrl(img) {
   var ctx = canvas.getContext("2d");
   ctx.drawImage(img, 0, 0);
   var dataURL = canvas.toDataURL("image/png");
-  console.log(dataURL);
+  // console.log(dataURL);
   img.src = dataURL;
 }
+  
+  const image = document.getElementById("imageid")
+  
+  image.addEventListener("load", function(){
+    getBase64FromImageUrl(this)
+    console.log('src', this.src)
+  })
 
 
-var base64 = getBase64FromImageUrl(document.getElementById("imageid"));
+// var base64 = getBase64FromImageUrl(document.getElementById("imageid"));
 </script> 
