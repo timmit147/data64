@@ -10,13 +10,16 @@ function getBase64FromImageUrl(img) {
   ctx.drawImage(img, 0, 0);
   var dataURL = canvas.toDataURL("image/png");
   // console.log(dataURL);
-  img.src = dataURL;
+  return dataURL;
 }
   
   const image = document.getElementById("imageid")
-  
+  let loaded= false
+  //test
   image.addEventListener("load", function(){
-    getBase64FromImageUrl(this)
+    if(loaded) return;
+    loaded = true
+    this.src = getBase64FromImageUrl(this)
     console.log('src', this.src)
   })
 
